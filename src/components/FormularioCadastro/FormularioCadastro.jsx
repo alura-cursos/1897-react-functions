@@ -1,6 +1,6 @@
 import React from "react";
 import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
-import { useState } from "react";
+
 
 function FormularioCadastro() {
   return (
