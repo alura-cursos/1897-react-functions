@@ -1,11 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
 
-
 function FormularioCadastro() {
+  const [nome,setNome] = useState("Ricardo");
+  
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        console.log(nome);
+      }}
+    >
       <TextField
+        value={nome}
+        onChange={(event) => {
+            setNome(event.target.value);
+          if (nome.length >= 3) {
+            setNome(nome.substr(0, 3));
+          }
+        }}
         id="nome"
         label="Nome"
         variant="outlined"
@@ -26,7 +39,6 @@ function FormularioCadastro() {
         margin="normal"
         fullWidth
       />
-
 
       <FormControlLabel
         label="Promoções"
